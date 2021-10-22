@@ -1,5 +1,5 @@
 {% load static %}
-<tr>
+<tr {% if forloop.counter == 2 %}class="pass" {% endif %}>
     <th scope="row">{{forloop.counter}}</th>
     <td class="team-desc">
         {% include '_team_logo.html' with team=team.team %}

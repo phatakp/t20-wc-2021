@@ -1,12 +1,49 @@
 {% extends '_base.html' %}
-
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
-<h1>Change Password</h1>
-<form method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" class="btn btn-primary">
-</form>
+{% include '_header.html' %}
+
+
+<main class="login">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Change Password</h5>
+        </div>
+        <div class="card-body">
+            <form method="POST" class="form" id="login-form">
+                {% csrf_token %}
+
+                <!--Form Error-->
+                {% if form.non_field_errors %}
+                <div class="text-danger text-center mt-2">
+                    {% for error in form.non_field_errors %}
+                    <small>{{error}}</small>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if message %}
+                <div class="text-success">{{message}}</div>
+                {% endif %}
+
+                <!--Form Fields-->
+                {% for field in form %}
+                <div class="form-input">
+                    {{field|as_crispy_field}}
+                </div>
+                {% endfor %}
+
+                <!--Submit Button-->
+                <div class="form-footer">
+                    <input type="submit" class="btn btn-warning" value="Submit" />
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</main>
 {% endblock content %}

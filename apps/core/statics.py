@@ -13,9 +13,8 @@ TEAM_CHOICES = [
     {'shortname': 'PNG', 'longname': 'Papua New Guinea', 'super12': False},
     {'shortname': 'SCO', 'longname': 'Scotland', 'super12': True,  'group': '2'},
     {'shortname': 'SA', 'longname': 'South Africa', 'super12': True, 'group': '1'},
-    {'shortname': 'SRI', 'longname': 'Srilanka', 'super12': False},
+    {'shortname': 'SRI', 'longname': 'Srilanka', 'super12': True, 'group': '1'},
     {'shortname': 'WI', 'longname': 'West Indies', 'super12': True, 'group': '1'},
-    {'shortname': 'A1', 'longname': 'Winner Group A', 'super12': True, 'group': '1'},
     {'shortname': 'A2', 'longname': 'RunnerUp Group A', 'super12': True, 'group': '2'},
 ]
 

@@ -18,17 +18,21 @@
             </thead>
             <tbody>
                 {% for bet in match_bets %}
-                {% if match.match.entry_cutoff_passed or bet.user == user or not match.match.is_scheduled %}
-                <tr>
-                    <td>{{bet.user.name}}</td>
+
+                <tr {% if bet.updated %}class="changed" {% endif %}>
+                    <td class="name">{{bet.user.name}}</td>
+                    {% if match.match.entry_cutoff_passed or bet.user == user %}
                     <td>{{bet.bet_team.shortname}}</td>
                     <td>{{bet.bet_amt}}</td>
+                    {% else %}
+                    <td>###</td>
+                    <td>###</td>
+                    {% endif %}
                     <td class="{% if bet.win_lose_amt < 0 %} text-danger {% else %} text-success{% endif %}">
                         {{bet.win_lose_amt|floatformat:2}}</td>
                     <td>{{bet.get_status_display}}</td>
                     <td>{{bet.create_upd_time|date:"d M, H:i"}}</td>
                 </tr>
-                {% endif %}
                 {% empty %}
                 <tr>
                     <td colspan="5">No Bets Placed Yet</td>

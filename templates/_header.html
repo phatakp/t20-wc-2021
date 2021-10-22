@@ -66,6 +66,8 @@
                             <i class="far fa-user-circle"></i> {{user.name}}
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            {% comment %} <li><a class="dropdown-item" href="{% url 'accounts:pwdchg' %}">Change
+                                    Password</a></li> {% endcomment %}
                             <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">Sign Out</a></li>
                         </ul>
                     </li>

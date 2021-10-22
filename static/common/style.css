@@ -172,17 +172,40 @@ main h2 strong {
     font-weight: 400;
 }
 
+.standings tbody tr {
+    border-bottom: 1px solid #e2e0e6;
+    border-radius: 10px;
+}
+
+.standings tbody tr.pass {
+    border-bottom: 2px solid #4a00e0;
+}
+
+.standings tbody tr:hover {
+    box-shadow: 2px 2px 2px 2px gray;
+    border-radius: 10px;
+}
+
+.standings tbody tr th {
+    font-size: 1.1rem;
+    vertical-align: middle;
+    line-height: 1.2;
+}
+
 .standings tbody tr td {
     font-size: 1.1rem;
     font-weight: 500;
-    font-family: 'Fira Sans', sans-serif;
     line-height: 1.2;
+    vertical-align: middle;
 }
+
 
 .standings tbody .longname {
     text-transform: uppercase;
     font-weight: 800;
     color: #10044A;
+    vertical-align: middle;
+    padding-bottom: 1.5rem;
 }
 
 .team-desc {
@@ -195,6 +218,8 @@ main h2 strong {
     width: 52px;
     height: 40px;
     overflow: hidden;
+    margin-right: 0.5rem;
+    transform: scale(0.75);
 }
 
 
@@ -274,9 +299,13 @@ main h2 strong {
 Login / Sign UP
 -----------------------------------------*/
 main.login {
-    background: url('./images/cricket.jpg') center center no-repeat;
+    background: url('./images/cricket.jpg') no-repeat;
+    background-position: center;
+    background-size: cover;
     min-height: 100vh;
+    min-width: 100vw;
     padding: 2rem;
+    margin: 0 !important;
 }
 
 main.login .card {
@@ -384,6 +413,19 @@ Dashboard
     padding-right: 2rem;
 }
 
+.dashboard .bets tbody tr {
+    cursor: pointer;
+}
+
+.dashboard .bets tbody tr:hover {
+    background-image: linear-gradient(to left, rgb(240, 239, 239) 0%, rgb(245, 241, 249) 100%);
+}
+
+.dashboard th,
+.dashboard td {
+    font-size: 1.1rem;
+}
+
 .dashboard .bets {
     padding-left: 2rem;
 }
@@ -460,6 +502,7 @@ Fixtures and Results
     flex-direction: row;
     padding: 1rem;
     justify-content: space-between;
+    align-items: center;
 }
 
 .team-logo-and-name {
@@ -556,6 +599,7 @@ Rules
 
     .gallery-cell {
         height: 30rem;
+        width: 90%;
     }
 
     .gallery-cell:before {

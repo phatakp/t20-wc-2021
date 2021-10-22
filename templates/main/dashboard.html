@@ -60,7 +60,7 @@
                     </thead>
                     <tbody>
                         {% for bet in bets %}
-                        <tr>
+                        <tr onclick="location.href='{{bet.match.get_absolute_url}}'">
                             <th scope="row">{{bet.match}}</th>
                             <td>{{bet.bet_team.shortname}}</td>
                             <td>{{bet.get_status_display}}</td>

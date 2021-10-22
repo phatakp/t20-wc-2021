@@ -24,13 +24,9 @@
     width: 100%;
 }
 
-.team-logo-and-name {
-    margin-top: 2rem;
-
-}
 
 .team-logo {
-    margin: 0 1.5rem;
+    margin: -10px 1.5rem;
 }
 
 .banner .match-header-desc {
@@ -224,6 +220,20 @@ select.form-control option:hover {
     font-weight: 400;
 }
 
+.match-bets tbody tr.changed td.name::before {
+    content: 'C';
+    text-align: center;
+    border-radius: 100%;
+    background-color: green;
+    color: #fff;
+    width: 1.5rem;
+    height: 1.5rem;
+    font-size: 0.8rem;
+    position: absolute;
+    left: 3%;
+    transform: rotate(-20deg);
+}
+
 .form-guide {
     padding: 3rem;
     margin-right: 2rem;
@@ -338,5 +348,12 @@ h1.text-center {
     .card {
         margin: 2rem 0;
         padding: 3rem 0;
+    }
+
+    .match-bets tbody tr.changed td.name::before {
+        left: 0;
+        width: 1.4rem;
+        height: 1.4rem;
+        font-size: 0.7rem;
     }
 }

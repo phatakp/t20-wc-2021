@@ -15,11 +15,6 @@ class UserRegistrationForm(UserCreationForm):
         model = CustomUser
         fields = ('email', 'name',
                   'password1', 'password2', 'team')
-        # widgets = {'name': forms.TextInput(attrs={'placeholder': 'Enter Your Name'}),
-        #            'email': forms.EmailInput(attrs={'placeholder': 'Enter Your Email'}),
-        #            'password1': forms.PasswordInput(attrs={'placeholder': 'Password'}),
-        #            'password2': forms.PasswordInput(attrs={'placeholder': 'Retype Password'}),
-        #            }
         labels = {'name': 'Name',
                   'email': 'Email',
                   'password1': 'Password',
@@ -50,9 +45,6 @@ class UserLoginForm(AuthenticationForm):
     class Meta:
         model = CustomUser
         fields = ('email', 'password')
-        # widgets = {'username': forms.EmailInput(attrs={'placeholder': 'Email Address'}),
-        #            'password': forms.PasswordInput(attrs={'placeholder': 'Password'}),
-        #            }
 
     def clean(self):
         username = self.cleaned_data.get('username')

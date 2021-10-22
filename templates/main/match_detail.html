@@ -20,7 +20,7 @@
             {% include 'main/_betForm.html' %}
             {% endif %}
 
-            {% if user.is_authenticated and user.is_site_admin and match.match.is_scheduled %}
+            {% if user.is_authenticated and user.is_site_admin and match.match.is_scheduled and match.match.entry_cutoff_passed %}
             {% include 'main/_resultForm.html' %}
             {% endif %}
 
