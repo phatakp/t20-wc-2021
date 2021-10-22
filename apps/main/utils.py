@@ -7,18 +7,15 @@ CustomUser = get_user_model()
 
 
 def standardize(overs):
-    print(f"{overs=}")
     base = overs // 1
     mantissa = (overs*10) % 10
     if mantissa > 5:
         mantissa = 6-mantissa
         base += 1
-    print('standard=', base+0.1*mantissa)
     return base + 0.1 * mantissa
 
 
 def get_rr(rr_str, team_runs, team_overs):
-    print(f"{rr_str=}")
     if rr_str:
         runs, overs = rr_str.split('/')
         runs = int(runs) + int(team_runs)
@@ -26,17 +23,14 @@ def get_rr(rr_str, team_runs, team_overs):
         overs = standardize(overs)
     else:
         runs, overs = int(team_runs), float(team_overs)
-    print('rr=', f"{runs}/{overs}")
     return f"{runs}/{overs}"
 
 
 def get_nrr(nrr_str):
-    print(f"{nrr_str=}")
     runs, overs = nrr_str.split('/')
     base, mantissa = overs.split('.')
     denom = int(mantissa) / 6
     final_overs = int(base) + denom
-    print('nrr=', int(runs)/final_overs)
     return int(runs)/final_overs
 
 
@@ -93,7 +87,6 @@ def update_table(match, team1_runs, team1_overs, team2_runs, team2_overs):
 
 
 def update_standings(match, status):
-    print("MAtch Status-", match.match.status)
     if status == 'abandoned':
         Standing.objects.filter(Q(team=match.match.team1) |
                                 Q(team=match.match.team2)).update(played=F('played')+1,
@@ -138,7 +131,6 @@ def process_winner_prediction_bets(match):
             tot_amt=Sum('bet_amt'))['tot_amt']
         total_lost_amt = losing_bets.aggregate(
             tot_amt=Sum('bet_amt'))['tot_amt']
-        print(f"{total_win_amt=}", f"{total_lost_amt=}")
         if total_win_amt and total_lost_amt:  # Some winners and Some losers
             for bet in winning_bets:
                 amt = total_lost_amt / winners
@@ -171,7 +163,6 @@ def process_defaulter_bets(match):
             tot_amt=Sum('bet_amt'))['tot_amt']
         total_lost_amt = default_bets.aggregate(
             tot_amt=Sum('bet_amt'))['tot_amt']
-        print(f"{total_win_amt=}", f"{total_lost_amt=}")
         if total_win_amt:
             for bet in non_default_bets:
                 amt = (bet.bet_amt/total_win_amt) * total_lost_amt
@@ -200,7 +191,6 @@ def process_match_completed(match):
         tot_amt=Sum('bet_amt'))['tot_amt']
     total_lost_amt = losing_bets.aggregate(
         tot_amt=Sum('bet_amt'))['tot_amt']
-    print(f"{total_win_amt=}", f"{total_lost_amt=}")
     if total_win_amt and total_lost_amt:  # Some winners and Some losers
         for bet in winning_bets:
             amt = (bet.bet_amt/total_win_amt) * total_lost_amt

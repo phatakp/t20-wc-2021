@@ -336,6 +336,29 @@ h1.text-center {
     color: #FF2F54;
 }
 
+@media screen and (max-width: 1024px) {
+    .card {
+        margin: 2rem 0;
+        padding: 3rem 0;
+    }
+
+    .hide-640 {
+        display: none;
+    }
+
+    .show-640 {
+        display: inline-block;
+    }
+
+    .form-guide .team-header {
+        padding: 0;
+    }
+
+    .form-guide .team-logo {
+        margin: 0;
+    }
+}
+
 @media screen and (max-width: 767px) {
     .amt-field {
         right: 1%;
@@ -355,5 +378,17 @@ h1.text-center {
         width: 1.4rem;
         height: 1.4rem;
         font-size: 0.7rem;
+    }
+
+
+}
+
+@media screen and (max-width: 640px) {
+    .form-guide .team-header {
+        padding: 0;
+    }
+
+    .form-guide .team-logo {
+        margin: 0;
     }
 }

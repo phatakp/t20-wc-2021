@@ -170,7 +170,6 @@ class MatchDetailView(LoginRequiredMixin, DetailView, FormView):
         return extra_context
 
     def process_winner_form(self, form):
-        print(self.request.POST)
         extra_context = {}
         winner = None
         if self.request.POST.get('winner'):

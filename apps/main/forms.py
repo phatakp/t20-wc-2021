@@ -21,7 +21,6 @@ class MatchResultForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         win_teams = kwargs.pop('win_teams', None)
         super().__init__(*args, **kwargs)
-        print(self.instance.team1_score)
         if win_teams:
             self.fields['winner'].queryset = win_teams
         for field in self.fields:

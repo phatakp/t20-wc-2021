@@ -13,7 +13,7 @@
                     <th scope="col">Amount</th>
                     <th scope="col">Result</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Time</th>
+                    <th scope="col" class="hide-640">Time</th>
                 </tr>
             </thead>
             <tbody>
@@ -31,7 +31,7 @@
                     <td class="{% if bet.win_lose_amt < 0 %} text-danger {% else %} text-success{% endif %}">
                         {{bet.win_lose_amt|floatformat:2}}</td>
                     <td>{{bet.get_status_display}}</td>
-                    <td>{{bet.create_upd_time|date:"d M, H:i"}}</td>
+                    <td class="hide-640">{{bet.create_upd_time|date:"d M, H:i"}}</td>
                 </tr>
                 {% empty %}
                 <tr>
