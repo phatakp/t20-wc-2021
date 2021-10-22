@@ -6,7 +6,7 @@ from .utils import (read_html, get_model_objects, Match, )
 # Create your views here.
 
 
-def upload_matches(request):
+def upload_matches(request=None):
     html_data = read_html()
     data = get_model_objects(html_data)
 
@@ -21,4 +21,7 @@ def upload_matches(request):
     # Update Final properties
     Match.objects.filter(num=33).update(min_bet=200,
                                         type='final')
-    return redirect('main:home')
+    if request:
+        return redirect('main:home')
+    else:
+        print("Match Schedule Updated")

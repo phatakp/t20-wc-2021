@@ -3,6 +3,7 @@ from django.apps import apps
 from django.contrib.auth import get_user_model
 from apps.accounts.forms import CustomUser
 from core.statics import TEAM_CHOICES
+from core.views import upload_matches
 
 CustomUser = get_user_model()
 Team = apps.get_model('main', 'Team')
@@ -17,6 +18,7 @@ class Command(BaseCommand):
             user.amount = 0
             user.save()
         self.load_teams()
+        upload_matches()
 
     def load_teams(self):
         Team.objects.all().delete()
