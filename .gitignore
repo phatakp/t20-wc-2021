@@ -1,0 +1,9 @@
+*.log
+*.pot
+*.pyc
+*.env
+__pycache__
+.vscode/
+db.sqlite3
+00env_cricket/
+project_worldcup/settings/local.py

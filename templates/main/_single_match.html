@@ -1,0 +1,63 @@
+{% load static %}
+
+<div class="match-container" onclick="location.href='{{match.get_absolute_url}}'">
+
+    {% comment %} {% if not match.match.is_scheduled %} {% endcomment %}
+    <div class="match-header">
+        {% include 'main/_match_result.html' %}
+    </div>
+    {% comment %} {% endif %} {% endcomment %}
+    <div class="match-details">
+        <div class="match-desc">
+            <div class="match-datetime">
+                <span class="match-date">{{match.match.date|date:"D d F"}}</span>
+                <span class="match-time">{{match.match.date|date:"H:i"}} (IST)</span>
+            </div>
+            <span class="match-venue">{{match.match.venue}}</span>
+        </div>
+        <div class="match-teams">
+            <div class="match-team-info">
+                <div class="team-logo-and-name">
+                    {% include '_team_logo.html' with team=match.match.team1 %}
+
+                    {% if match.match.is_completed and match.match.team1 != match.winner or match.match.is_abandoned %}
+                    {% include '_team_name.html' with team=match.match.team1 muted='text-muted' %}
+                    {% else %}
+                    {% include '_team_name.html' with team=match.match.team1 %}
+                    {% endif %}
+
+                </div>
+                {% if match.team1_score %}
+                <div class="match-score 
+                        {% if match.match.is_completed and match.match.team1 != match.winner or match.match.is_abandoned %}
+                        text-muted
+                        {% endif %}">
+                    {{match.team1_score}}
+                </div>
+                {% endif %}
+            </div>
+            <div class="match-team-info">
+                <div class="team-logo-and-name">
+                    {% include '_team_logo.html' with team=match.match.team2 %}
+                    {% if match.match.is_completed and match.match.team2 != match.winner or match.match.is_abandoned %}
+                    {% include '_team_name.html' with team=match.match.team2 muted='text-muted' %}
+                    {% else %}
+                    {% include '_team_name.html' with team=match.match.team2 %}
+                    {% endif %}
+                </div>
+                {% if match.team2_score %}
+                <div class="match-score 
+                        {% if match.match.is_completed and match.match.team2 != match.winner or match.match.is_abandoned %}
+                        text-muted
+                        {% endif %}">
+                    {{match.team2_score}}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="match-control">
+            <a href="#" class="btn btn-dark">Predict Winner</a>
+            <a href="#" class="btn btn-detail">Match Center</a>
+        </div>
+    </div>
+</div>

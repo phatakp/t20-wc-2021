@@ -1,0 +1,6 @@
+{% load static %}
+
+<span class="team-logo">
+    <img class="{% if team %}{{team.shortname}}{% else %}A1{% endif %}"
+        src="{% static 'common/images/flags-20-sprite@x2.png' %}">
+</span>

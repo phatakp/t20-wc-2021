@@ -1,0 +1,79 @@
+{% extends '_base.html' %}
+{% load static %}
+
+
+{% block content %}
+{% include '_header.html' %}
+<main class="dashboard">
+    <div class="container">
+        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": false }'>
+            {% for match in matches %}
+            {% if forloop.counter < 5 %}
+            <div class="gallery-cell">
+                {% include 'main/_single_match.html' %}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12 players">
+                <h2>Standings</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">WC Prediction</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Amount</th>
+                            <th scope="col">Form Guide</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user in users %}
+                        <tr>
+                            <th scope="row">{{forloop.counter}}</th>
+                            <td>{% include '_team_logo.html' with team=user.team %}</td>
+                            <td>{{user.name}}</td>
+                            <td class="{% if user.amount < 0 %} text-danger {% else %} text-success{% endif %}">
+                                {{user.amount|floatformat:2}}</td>
+                            <td>-</td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="col-md-6 col-sm-12 bets">
+                <h2> Your Predictions</h2>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Match</th>
+                            <th scope="col">Prediction</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Bet</th>
+                            <th scope="col">Win/Loss</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for bet in bets %}
+                        <tr>
+                            <th scope="row">{{bet.match}}</th>
+                            <td>{{bet.bet_team.shortname}}</td>
+                            <td>{{bet.get_status_display}}</td>
+                            <td>{{bet.bet_amt}}</td>
+                            <td class="{% if bet.win_lose_amt < 0 %} text-danger {% else %} text-success{% endif %}">
+                                {{bet.win_lose_amt|floatformat:2}}</td>
+                        </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock content %}

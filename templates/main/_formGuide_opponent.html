@@ -1,0 +1,12 @@
+{% load static %}
+
+<div class="opponent">
+    {% if matchform.match.team1 == team %}
+    <span class="hide-640">{{matchform.match.team2.longname}}</span>
+    <span class="show-640">{{matchform.match.team2.shortname}}</span>
+    {% else %}
+    <span class="hide-640">{{matchform.match.team1.longname}}</span>
+    <span class="show-640">{{matchform.match.team1.shortname}}</span>
+    {% endif %}
+
+</div>

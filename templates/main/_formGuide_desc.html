@@ -1,0 +1,13 @@
+{% load static %}
+
+<div class="desc">
+    {% if matchform.match.is_completed and matchform.winner == team %}
+    <span>Won by {{matchform.win_margin}} {{matchform.get_win_type_display}}</span>
+    {% elif matchform.match.is_scheduled %}
+    <span>On {{matchform.match.date|date:'D d F H:i'}}</span>
+    {% elif matchform.match.is_abandoned %}
+    <span>Match Abandoned</span>
+    {% else %}
+    <span>Lost by {{matchform.win_margin}} {{matchform.get_win_type_display}}</span>
+    {% endif %}
+</div>

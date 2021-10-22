@@ -1,0 +1,13 @@
+{% load static %}
+
+<div class="result">
+    {% if matchform.match.is_completed and matchform.winner == team %}
+    <span class="won">W</span>
+    {% elif matchform.match.is_scheduled %}
+    <span>-</span>
+    {% elif matchform.match.is_abandoned %}
+    <span class="draw">A</span>
+    {% else %}
+    <span class="lost">L</span>
+    {% endif %}
+</div>

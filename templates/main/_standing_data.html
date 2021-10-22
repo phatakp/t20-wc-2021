@@ -1,0 +1,14 @@
+{% load static %}
+<tr>
+    <th scope="row">{{forloop.counter}}</th>
+    <td class="team-desc">
+        {% include '_team_logo.html' with team=team.team %}
+        {% include '_team_name.html' with team=team.team %}
+    </td>
+    <td>{{team.played}}</td>
+    <td class="hide-640">{{team.won}}</td>
+    <td class="hide-640">{{team.lost}}</td>
+    <td class="hide-1024">{{team.no_result}}</td>
+    <td>{{team.nrr|floatformat:2}}</td>
+    <td>{{team.points}}</td>
+</tr>

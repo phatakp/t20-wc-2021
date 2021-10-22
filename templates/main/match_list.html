@@ -1,0 +1,15 @@
+{% extends '_base.html' %}
+{% load static %}
+
+{% block content %}
+{% include '_header.html' %}
+
+<main>
+    <div class="container">
+        {% for match in matches %}
+        {% include 'main/_single_match.html' %}
+        {% endfor %}
+    </div>
+
+</main>
+{% endblock content %}

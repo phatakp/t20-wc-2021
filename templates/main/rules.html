@@ -1,0 +1,99 @@
+{% extends '_base.html' %}
+{% load static %}
+
+
+{% block content %}
+{% include '_header.html' %}
+<main class="rules-section">
+    <div class="container">
+        <div class="rules">
+            <span class="heading">Registration & Winner Prediction</span>
+            <ol>
+                <li>Each Player to register on this site. <br> Once you register, you have to play entire tournament.
+                </li>
+                <li>During registration, player needs to predict Winner of World Cup. </li>
+                <li>An automatic bet for Rs.500 will be placed for your chosen team, which will be settled at end of
+                    World Cup.
+                </li>
+            </ol>
+        </div>
+        <div class="rules">
+            <span class="heading">Betting Process</span>
+            <ol>
+                <li>You can place bet for a match from
+                    <a href="{% url 'main:match_list' %}"><strong>Matches Tab</strong></a> or
+                    <a href="{% url 'main:dashboard' %}"><strong>Dashboard tab</strong>.</a>
+                </li>
+                <li>Cutoff time for Bet placement for any match is 30 minutes prior the start of match.
+                    <ul>
+                        <li><small>For matches starting at 3:30 PM IST, bet should be placed before 3:00 PM IST.</small>
+                        </li>
+                        <li><small>For matches starting at 7:30 PM IST, bet should be placed before 7:00 PM IST.</small>
+                        </li>
+
+                    </ul>
+                </li>
+                <li>All bets for the other players, will be visible only after cutoff has passed.</li>
+                <li>However, you will be able to modify your bet up until start of the match (3:30 or 7:30)
+                    respectively.
+                </li>
+                <li>But to change your bet, you will have to double the amount of previous bet.
+                    <ul>
+                        <li><small>For e.g if for IND vs PAK match your original bet was Rs.50 for IND,
+                                you can change this bet up until the match start time (3:30 or 7:30)
+                                , provided your new bet amount is atleast Rs.100.</small>
+                        </li>
+                    </ul>
+                </li>
+                <li class="text-danger">The cutoff times for bet placement will not change even if the match is delayed
+                    due to any circumstances. <br>Plz Refer Point-2 for cutoff <br> No leniency to be given to
+                    defaulters in any case.
+                </li>
+
+                <li>Minimum bet amount for Super 12 is Rs.50. <br>
+                    Minimum bet amount for Semi Final is Rs.100. <br>
+                    Minimum bet amount for Final is Rs.200. <br>
+                </li>
+                <li>The upper limit for bet amount is minimum bet for match * 6.</li>
+                <li>If you fail to place a bet before the cutoff for any match, amount equivalent to minumum bet for the
+                    match will deducted from your account.</li>
+                <li>There is no restriction on advance bet placements. You can bet for all 30 Super 12 matches in
+                    advance.
+                </li>
+            </ol>
+        </div>
+        <div class="rules">
+            <span class="heading">Settlement Process</span>
+            <ol>
+                <li>Settlement for every match will calculated based on below formula.</li>
+                <li>If you win a particular bet, you will receive <em><strong>(Your bet amount / Total bet on winning
+                            team) x
+                            Total bet on losing team</strong>. </em>
+                </li>
+                <li>Any defaulter for a match, will be accounted as bet on losing team.</li>
+                <li>Even in a case where the match is abandoned or their are no actual winners in a match, if there are
+                    defaulters ,
+                    they will be treated as losing bets and the money will distributed
+                    to all non-defaulters as per the formula in Point-1.</li>
+                <ul>
+                    <li><small>For e.g if in IND vs PAK, there are defaulters and all non-defaulters have bet on PAK,
+                            even if IND wins the match, total defaulted money will be distributed according to
+                            applicable ratio
+                            to players who bet on PAK.
+                        </small></li>
+                    <li><small>In other case, if there are defaulters and match is abandoned, total defaulted money
+                            will be distributed according to
+                            applicable ratio to players who are non-defaulters.
+                        </small></li>
+                </ul>
+                <li>For WC Final, if there is no player, who correctly predicted the winner (during registration), the
+                    bet for Rs.500 will be null and void.
+                </li>
+            </ol>
+        </div>
+        <div class="rules">
+            <span class="heading">Let the Game Begin!!</span>
+        </div>
+    </div>
+</main>
+{% endblock content %}

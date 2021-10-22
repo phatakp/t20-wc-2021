@@ -1,0 +1,48 @@
+{% extends '_base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% include '_header.html' %}
+
+
+<main class="login">
+    <div class="card">
+        <div class="card-header">
+            <h5 class="card-title">Login</h5>
+        </div>
+        <div class="card-body">
+            <form method="POST" class="form" id="login-form">
+                {% csrf_token %}
+
+                <!--Form Error-->
+                {% if form.non_field_errors %}
+                <div class="text-danger text-center mt-2">
+                    {% for error in form.non_field_errors %}
+                    <small>{{error}}</small>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                <!--Form Fields-->
+                {% for field in form %}
+                <div class="form-input">
+                    {{field|as_crispy_field}}
+                </div>
+                {% endfor %}
+
+                <!--Submit Button-->
+                <div class="form-footer">
+                    <input type="submit" class="btn btn-warning" value="Submit" />
+                    <a class="form-link" href="{% url 'accounts:register' %}">
+                        Not Registered
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</main>
+{% endblock content %}

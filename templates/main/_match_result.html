@@ -1,0 +1,12 @@
+{% load static %}
+
+{% if match.match.is_completed %}
+{% include '_team_name.html' with team=match.winner %}
+<span> won by <strong>{{match.win_margin}}</strong> {{match.get_win_type_display}}</span>
+{% elif match.match.is_started %}
+<span>Match in Progress</span>
+{% elif match.match.is_abandoned %}
+<span>Match Abandoned</span>
+{% elif match.match.is_scheduled %}
+<span>{{match.match.date|date:"D d F"}} {{match.match.date|date:"H:i"}} (IST)</span>
+{% endif %}

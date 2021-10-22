@@ -1,0 +1,71 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<div class="card">
+    <div class="card-header">
+        <h1 class="card-title">Prediction</h1>
+    </div>
+    <div class="card-body">
+        <form method="POST" class="form">
+            {% csrf_token %}
+
+            <!--Form Error-->
+            {% if form.non_field_errors %}
+            <div class="text-danger text-center mt-2">
+                {% for error in form.non_field_errors %}
+                <small>{{error}}</small>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <!--Record Validation Error-->
+            {% if message %}
+            <div class="message mt-2">
+                {{message}}
+            </div>
+            {% endif %}
+
+
+
+            <!--Form Fields-->
+
+            <!--Bet Team-->
+            <div class="team-field">
+                <h4>Team Selection</h4>
+                {% if match.match.team1 and match.match.team2 %}
+                <div class="inputGroup">
+                    <input id="team1" name="input_team" value='{{match.match.team1.id}}' type="radio"
+                        {% if match.match.team1 == curr_team %} checked {% endif %} />
+                    <label for="team1">{{match.match.team1.shortname}}</label>
+                </div>
+                <div class="inputGroup">
+                    <input id="team2" name="input_team" value='{{match.match.team2.id}}' type="radio"
+                        {% if match.match.team2 == curr_team %} checked {% endif %} />
+                    <label for="team2">{{match.match.team2.shortname}}</label>
+                </div>
+                {% endif %}
+            </div>
+
+            <!--Bet Amount-->
+            <div class="amt-field">
+                <span id="rangeValue">Amount: {{curr_bet}}</span>
+                <input class="range" type="range" name="input_amount" value="{{curr_bet}}" min="{{curr_bet}}"
+                    max="{% widthratio match.match.min_bet 1 6 %}" onChange="rangeSlide(this.value)"
+                    onmousemove="rangeSlide(this.value)"></input>
+            </div>
+
+            <!--Submit Button-->
+            <div class="form-footer">
+                <input type="submit" class="btn btn-primary" value="Submit" />
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript">
+    function rangeSlide(value) {
+        document.getElementById('rangeValue').innerHTML = 'Amount: ' + value;
+    }
+</script>

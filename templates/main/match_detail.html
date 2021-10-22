@@ -1,0 +1,100 @@
+{% extends '_base.html' %}
+{% load static %}
+
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'main/detail.css' %}">
+{% endblock styles %}
+
+
+{% block content %}
+{% include '_header.html' %}
+<main>
+
+
+    {% if match.match.team1 and match.match.team2 %}
+
+    <div class="row">
+        <div class="col-md-6 col-sm-12">
+            {% if match.match.is_scheduled and not match.match.is_started %}
+            {% include 'main/_betForm.html' %}
+            {% endif %}
+
+            {% if user.is_authenticated and user.is_site_admin and match.match.is_scheduled %}
+            {% include 'main/_resultForm.html' %}
+            {% endif %}
+
+
+            {% include 'main/_match_bets.html' %}
+
+        </div>
+
+        <div class="col-md-6 col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="card-title">Form Guide</h1>
+                </div>
+                <div class="card-body form-guide">
+
+                    <div class="team teamLeft">
+                        <!-- Heading -->
+                        <div class="team-header">
+                            {% include '_team_name.html' with team=match.match.team1 %}
+                            {% include '_team_logo.html' with team=match.match.team1 %}
+                        </div>
+
+                        <!-- Rows -->
+                        {% for matchform in team1_form_guide %}
+                        {% if forloop.counter < 6 %}
+                        <div class="formRow">
+                            <div class="match-result">
+                                {% include 'main/_formGuide_opponent.html' with team=match.match.team1 %}
+                                <span class="versus">-</span>
+                                {% include 'main/_formGuide_result.html' with team=match.match.team1 %}
+                            </div>
+                            {% include 'main/_formGuide_desc.html' with team=match.match.team1 %}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+
+                    <div class="team teamRight">
+                        <!-- Heading -->
+                        <div class="team-header">
+                            {% include '_team_logo.html' with team=match.match.team2 %}
+                            {% include '_team_name.html' with team=match.match.team2 %}
+                        </div>
+
+                        <!-- Rows -->
+                        {% for matchform in team2_form_guide %}
+                        {% if forloop.counter < 6 %}
+                        <div class="formRow">
+                            <div class="match-result">
+                                {% include 'main/_formGuide_result.html' with team=match.match.team2 %}
+                                <span class="versus">-</span>
+                                {% include 'main/_formGuide_opponent.html' with team=match.match.team2 %}
+                            </div>
+                            {% include 'main/_formGuide_desc.html' with team=match.match.team2 %}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    <div class="container">
+        <h1 class="text-center">Schedule</h1>
+        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": false }'>
+            {% for match_slide in matches %}
+            {% if forloop.counter < 6 and match_slide != match %}
+            <div class="gallery-cell">
+                {% include 'main/_single_match.html' with match=match_slide %}
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock content %}

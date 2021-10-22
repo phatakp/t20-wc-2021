@@ -1,0 +1,342 @@
+.navbar.main-nav {
+    background-image: linear-gradient(to right, #0c1148, #0f0c29, #302b63, #24243e);
+}
+
+.banner {
+    height: 30rem;
+    background: url('../common/images/cricket.jpg') center center no-repeat;
+}
+
+.banner .page-heading {
+    height: 14rem;
+    width: 94%;
+    margin-top: 10rem;
+    background-image: linear-gradient(to right, #141e30, #243b55);
+    opacity: 0.8;
+    margin-left: 3%;
+}
+
+.header-teams {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.team-logo-and-name {
+    margin-top: 2rem;
+
+}
+
+.team-logo {
+    margin: 0 1.5rem;
+}
+
+.banner .match-header-desc {
+    font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    width: 100%;
+    text-align: center;
+    color: whitesmoke;
+    margin-top: 2rem;
+    background-image: linear-gradient(to right, #0c1148, #0f0c29, #302b63, #24243e);
+    padding: 0.5rem 1rem;
+}
+
+main .row {
+    margin-top: 3rem;
+}
+
+.card {
+    padding: 3rem;
+    margin: 2rem;
+    box-shadow: 1px 2px 2px 2px gray;
+}
+
+.card h1 {
+    text-align: center;
+    color: #FF2F54;
+}
+
+.message {
+    font-size: 1.5rem;
+    width: 100%;
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+    color: white;
+    padding: 0 1rem;
+}
+
+.btn-primary {
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+}
+
+.form-control {
+    color: #000;
+}
+
+.form-group label {
+    color: #4a00e0;
+}
+
+select.form-control option:hover {
+    color: #4a00e0;
+}
+
+/* Team Switch */
+.team-field {
+    margin-top: 3rem;
+}
+
+.inputGroup {
+    background-color: #fff;
+    display: block;
+    margin: 10px 0;
+    position: relative;
+}
+
+.inputGroup label {
+    padding: 12px 30px;
+    width: 50%;
+    display: block;
+    text-align: left;
+    color: #3C454C;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: color 200ms ease-in;
+    overflow: hidden;
+}
+
+.inputGroup label::before {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    content: '';
+    background-color: #eb5555;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale3d(1, 1, 1);
+    transition: all 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+    opacity: 0;
+    z-index: -1;
+}
+
+.inputGroup label::after {
+    width: 32px;
+    height: 32px;
+    content: '';
+    border: 2px solid #D1D7DC;
+    background-color: #fff;
+    background-image: url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
+    background-repeat: no-repeat;
+    background-position: 2px 3px;
+    border-radius: 50%;
+    z-index: 2;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: all 200ms ease-in;
+}
+
+.inputGroup input:checked~label {
+    color: #fff;
+}
+
+.inputGroup input:checked~label::before {
+    transform: translate(-50%, -50%) scale3d(56, 56, 1);
+    opacity: 1;
+}
+
+.inputGroup input:checked~label::after {
+    background-color: #54E0C7;
+    border-color: #033b31;
+}
+
+.inputGroup input {
+    width: 32px;
+    height: 32px;
+    order: 1;
+    z-index: 2;
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    visibility: hidden;
+}
+
+/* Amount Slider */
+
+.amt-field {
+    position: absolute;
+    right: 10%;
+    top: 50%;
+}
+
+#rangeValue {
+    position: relative;
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.range {
+    width: 15rem;
+    height: 15px;
+    -webkit-appearance: none;
+    background: #eb5555;
+    outline: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 0 5px #eb5555;
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #54E0C7;
+    cursor: pointer;
+    border: 4px solid #333;
+    box-shadow: -407px 0 0 400px #54E0C7;
+}
+
+.form-footer {
+    margin-top: 3rem;
+}
+
+.match-bets thead tr {
+    /* background: #7629EE; */
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+    color: #fff;
+}
+
+.match-bets thead tr th {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.form-guide {
+    padding: 3rem;
+    margin-right: 2rem;
+}
+
+.form-guide h1 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 2rem;
+    color: #FF2F54;
+}
+
+.form-guide hr {
+    height: 3px;
+}
+
+.form-guide .team-header {
+    vertical-align: middle;
+    border-bottom: 1px solid #a1a1a2;
+    padding: 1.5rem;
+}
+
+.form-guide .team {
+    float: left;
+    width: 50%;
+}
+
+.form-guide .teamLeft {
+    text-align: right;
+}
+
+.form-guide .teamRight {
+    text-align: left;
+}
+
+.form-guide .longname {
+    font-size: 2rem;
+}
+
+.form-guide .formRow {
+    border-bottom: 1px solid #d5d5d8;
+    padding: 0.5rem 0;
+    font-size: 1.2rem;
+}
+
+.form-guide .teamLeft .formRow {
+    padding-right: 3rem;
+}
+
+.form-guide .teamRight .formRow {
+    padding-left: 3rem;
+}
+
+.form-guide .formRow .match-result {
+    display: flex;
+    align-items: center;
+}
+
+.form-guide .teamLeft .formRow .match-result {
+    justify-content: flex-end;
+}
+
+.form-guide .teamRight .formRow .match-result {
+    justify-content: flex-start;
+}
+
+.formRow .versus {
+    margin: 0 1rem
+}
+
+.formRow .result span {
+    border-radius: 100%;
+    text-align: center;
+    width: 2rem;
+    height: 2rem;
+    display: inline-block;
+    background-color: #76766f;
+    color: white;
+}
+
+.formRow .result span.won {
+    background-color: #06760f;
+}
+
+.formRow .result span.lost {
+    background-color: #f6060f;
+}
+
+.formRow .result span.draw {
+    background-color: #eb902a;
+}
+
+.formRow .desc {
+    font-size: 0.8rem;
+    font-family: 'Poppins', sans-serif;
+    color: #76766f;
+}
+
+h1.text-center {
+    color: #FF2F54;
+}
+
+@media screen and (max-width: 767px) {
+    .amt-field {
+        right: 1%;
+    }
+
+    main .row {
+        margin-top: 8rem;
+    }
+
+    .card {
+        margin: 2rem 0;
+        padding: 3rem 0;
+    }
+}

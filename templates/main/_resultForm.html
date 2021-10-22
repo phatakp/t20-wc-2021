@@ -1,0 +1,42 @@
+{% load static %}
+{% load crispy_forms_tags %}
+
+<div class="card">
+    <div class="card-header">
+        <h1 class="card-title">Match Result</h1>
+    </div>
+    <div class="card-body">
+        <form method="POST" class="form">
+            {% csrf_token %}
+
+            <!--Form Error-->
+            {% if form.non_field_errors %}
+            <div class="text-danger text-center mt-2">
+                {% for error in form.non_field_errors %}
+                <small>{{error}}</small>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <!--Record Validation Error-->
+            {% if result_message %}
+            <div class="message mt-2">
+                {{result_message}}
+            </div>
+            {% endif %}
+
+
+            <!--Form Fields-->
+            {% for field in form %}
+            {{field|as_crispy_field}}
+            {% endfor %}
+
+            <!--Submit Button-->
+            <div class="form-footer">
+                <input type="submit" class="btn btn-primary" value="Submit" />
+            </div>
+
+
+        </form>
+    </div>
+</div>

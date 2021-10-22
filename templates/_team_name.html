@@ -1,0 +1,12 @@
+{% load static %}
+
+{% if team %}
+<span class="longname hide-640 {{muted}}">
+    {{team.longname}}
+</span>
+<span class="longname show-640 {{muted}}">
+    {{team.shortname}}
+</span>
+{% else %}
+<span class="longname">TBC</span>
+{% endif %}

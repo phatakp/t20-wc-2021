@@ -1,0 +1,621 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Ropa Sans', sans-serif;
+}
+
+.text-muted {
+    color: rgb(187, 182, 182) !important;
+}
+
+/*----------------------------------------
+Static Top Login Header
+-----------------------------------------*/
+
+.static-header {
+    display: flex;
+    min-width: 100%;
+    height: 2rem;
+    justify-content: space-between;
+    align-items: center;
+    background-color: antiquewhite;
+    padding: 0 1rem;
+}
+
+.global-site-logo {
+    background: url('./images/global-sprite.png') -486px -108px no-repeat;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+    margin-right: 0.8rem;
+}
+
+.site-head,
+.auth-links {
+    display: flex;
+    align-items: center;
+}
+
+.auth-links a {
+    margin: 0 0.25rem;
+    color: #000;
+    font-size: 0.9rem;
+    font-weight: 800;
+    text-decoration: none !important;
+}
+
+.auth-links a:hover {
+    text-decoration: underline;
+}
+
+.auth-links strong {
+    color: #1f0a8a;
+}
+
+.auth-links i {
+    margin-right: 0.25rem;
+}
+
+/*----------------------------------------
+Blue Navbar Banner
+-----------------------------------------*/
+
+.banner {
+    min-width: 100%;
+    min-height: 15rem;
+    /* background: #0c1148; */
+    position: relative;
+    background-image: linear-gradient(to right, #0c1148, #0f0c29, #302b63, #24243e);
+}
+
+.banner .nav-item {
+    margin: 1rem;
+}
+
+.banner .nav-link {
+    text-transform: uppercase;
+    font-size: 1rem;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.banner .nav-link.active {
+    border-bottom: 2px solid #FF2F54;
+}
+
+.banner .nav-item:hover .nav-link {
+    color: white;
+}
+
+.banner .nav-item:not(.dropdown):hover {
+    background-color: #10044A;
+    opacity: 0.5;
+    transition: all 1s ease;
+    border-bottom: 2px solid #FF2F54;
+}
+
+.banner .nav-item.dropdown:hover .dropdown-menu {
+    display: block;
+    transition: all 0.25 ease;
+}
+
+.banner .page-heading {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #fff;
+    margin-top: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+main {
+    margin: 5rem 0;
+}
+
+/*----------------------------------------
+Match Slider
+-----------------------------------------*/
+.gallery-cell {
+    width: 75%;
+    height: 20rem;
+    margin-right: 2rem;
+    counter-increment: gallery-cell;
+}
+
+/* cell number */
+.gallery-cell:before {
+    display: block;
+    text-align: center;
+    content: '';
+    line-height: 20rem;
+}
+
+/*----------------------------------------
+Standings Tables
+-----------------------------------------*/
+.show-640 {
+    display: none
+}
+
+main h2 {
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-family: 'Fira Sans', sans-serif;
+    color: #FF2F54;
+    font-style: italic;
+    margin-top: 3.5rem;
+    margin-bottom: 1rem;
+}
+
+main h2 strong {
+    color: #10044A;
+}
+
+.standings thead tr {
+    /* background: #7629EE; */
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+    color: #fff;
+}
+
+.standings thead tr th {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    font-weight: 400;
+}
+
+.standings tbody tr td {
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: 'Fira Sans', sans-serif;
+    line-height: 1.2;
+}
+
+.standings tbody .longname {
+    text-transform: uppercase;
+    font-weight: 800;
+    color: #10044A;
+}
+
+.team-desc {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.team-logo {
+    display: inline-block;
+    width: 52px;
+    height: 40px;
+    overflow: hidden;
+}
+
+
+.team-logo img.AFG {
+    margin: -210px 0px 0px -54px;
+}
+
+.team-logo img.AUS {
+    margin: -210px 0px 0px -158px;
+}
+
+.team-logo img.BAN {
+    margin: -40px 0px 0px -260px;
+}
+
+.team-logo img.ENG {
+    margin: -120px 0px 0px -312px;
+}
+
+.team-logo img.IND {
+    margin: -40px 0px 0px -364px;
+}
+
+.team-logo img.IRE {
+    margin: -120px 0px 0px -364px;
+}
+
+.team-logo img.NAM {
+    margin: -370px 0px 0px -52px;
+}
+
+.team-logo img.NED {
+    margin: -370px 0px 0px -156px;
+}
+
+.team-logo img.NZ {
+    margin: -370px 0px 0px -312px;
+}
+
+.team-logo img.OMN {
+    margin: -370px 0px 0px -364px;
+}
+
+.team-logo img.PAK {
+    margin: 0px 0px 0px -416px;
+    border: 1px solid gray;
+}
+
+.team-logo img.PNG {
+    margin: -120px 0px 0px -416px;
+}
+
+.team-logo img.SA {
+    margin: -280px 0px 0px -417px;
+}
+
+.team-logo img.SCO {
+    margin: -360px 0px 0px -417px;
+}
+
+.team-logo img.SRI {
+    margin: -410px 0px 0px -104px;
+}
+
+.team-logo img.WI {
+    margin: -240px 0px 0px -469px;
+}
+
+.team-logo img.A1,
+.team-logo img.A2,
+.team-logo img.B1,
+.team-logo img.B2 {
+    margin: -450px 0px 0px -0px;
+}
+
+/*----------------------------------------
+Login / Sign UP
+-----------------------------------------*/
+main.login {
+    background: url('./images/cricket.jpg') center center no-repeat;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+main.login .card {
+    width: 30%;
+    margin-left: 20%;
+    margin-top: 2rem;
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+    box-shadow: 1px 2px 2px 2px gray;
+}
+
+main.login .card-title {
+    font-size: 2rem;
+    color: #fff;
+
+}
+
+.asteriskField,
+#norton-idsafe-field-styling-divId,
+#hint_id_username,
+#hint_id_password1,
+#hint_id_password2 {
+    display: none;
+}
+
+.form-input {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 1em 0;
+    width: 100%;
+}
+
+.form-group {
+    text-align: left !important;
+    margin: 0 1em;
+    width: 100%;
+}
+
+.form-control {
+    border: none;
+    border-bottom: 1px solid grey;
+    background-color: transparent;
+    padding: 4px 5px;
+    outline: none;
+    color: white;
+}
+
+.form-control:disabled {
+    color: gray;
+}
+
+.form-control-file {
+    color: gray;
+    border: none !important;
+    background-color: transparent;
+    padding: 4px 5px;
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: grey;
+}
+
+.form-control:focus {
+    color: bisque;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #ffc127;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.form-group label {
+    color: #f3a508;
+
+}
+
+select.form-control option {
+    background-color: #181818;
+    color: white;
+}
+
+select.form-control option:hover {
+    color: #ffc127;
+}
+
+.form-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.form-link {
+    color: #f3a508;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/*----------------------------------------
+Dashboard
+-----------------------------------------*/
+.dashboard .players {
+    padding-right: 2rem;
+}
+
+.dashboard .bets {
+    padding-left: 2rem;
+}
+
+/*----------------------------------------
+Fixtures and Results
+-----------------------------------------*/
+.match-container {
+    margin-top: 2.5rem;
+    cursor: pointer;
+}
+
+
+
+.match-header {
+    width: 102%;
+    /* background-color: #7729EE; */
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+    color: #fff;
+    padding: 0.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    border-radius: 20px;
+    margin-left: -1%;
+}
+
+.match-details {
+    display: flex;
+    /* background: rgb(250, 249, 249); */
+    background-image: linear-gradient(to right, rgb(250, 249, 249) 0%, rgb(255, 251, 249) 100%);
+    box-shadow: 1px 2px 2px 2px rgb(194, 192, 192);
+    padding: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 20px;
+}
+
+.match-details:hover {
+    background-image: linear-gradient(to left, rgb(240, 239, 239) 0%, rgb(245, 241, 249) 100%);
+}
+
+.match-desc {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+}
+
+.match-datetime {
+    display: flex;
+    flex-direction: column;
+}
+
+.match-date {
+    font-size: 2rem;
+    font-family: 'Fira Sans', sans-serif;
+    color: #8e2de2;
+}
+
+.match-time {
+    font-size: 2rem;
+    /* font-family: 'Fira Sans', sans-serif; */
+    font-weight: 800;
+}
+
+.match-teams {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 55%;
+}
+
+.match-team-info {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    justify-content: space-between;
+}
+
+.team-logo-and-name {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.team-logo-and-name .team-logo {
+    margin-right: 1rem;
+}
+
+.team-logo-and-name .longname {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.match-score {
+    font-size: 1.5rem;
+    font-weight: 900;
+    text-align: right;
+}
+
+.match-control {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    margin-left: 1rem;
+}
+
+.match-control a {
+    margin: 1rem 0;
+}
+
+.btn-detail {
+    background-image: linear-gradient(to right, #8e2de2, #4a00e0);
+    color: white;
+}
+
+.btn-dark {
+    background-image: linear-gradient(to right, #434343 0%, black 100%);
+    color: white;
+}
+
+/*----------------------------------------
+Rules
+-----------------------------------------*/
+.rules-section .container {
+    background-image: linear-gradient(to right, #fff, #dadfe4, #d8cce2);
+}
+
+.rules-section .rules {
+    margin: 3rem 0;
+    padding: 1rem;
+}
+
+.rules-section .heading {
+    margin: 1rem 0;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    line-height: 1.5rem;
+}
+
+.rules-section ol li {
+    margin: 1rem 0;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.2rem;
+}
+
+.rules-section ul li {
+    font-weight: 800;
+}
+
+@media screen and (max-width:1024px) {
+    .hide-1024 {
+        display: none;
+    }
+
+    main.login .card {
+        width: 50%;
+        margin-left: 10%;
+    }
+}
+
+@media screen and (max-width:767px) {
+
+    main {
+        margin: 1rem 0;
+    }
+
+    .gallery-cell {
+        height: 30rem;
+    }
+
+    .gallery-cell:before {
+        line-height: 30rem;
+    }
+
+
+    main.login .card {
+        width: 90%;
+        margin-left: 5%;
+    }
+
+    .match-details {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .match-desc {
+        width: 100%;
+    }
+
+    .match-datetime {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+    }
+
+    .match-venue {
+        text-align: center;
+    }
+
+    .match-teams {
+        width: 100%;
+    }
+
+    .match-team-info {
+        align-items: center;
+    }
+
+    .match-control {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+
+@media screen and (max-width:640px) {
+
+    html {
+        font-size: 14px;
+    }
+
+    .hide-640 {
+        display: none;
+    }
+
+    .show-640 {
+        display: inline-block;
+    }
+}
