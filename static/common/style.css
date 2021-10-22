@@ -430,6 +430,27 @@ Dashboard
     padding-left: 2rem;
 }
 
+.user-form-guide span {
+    border-radius: 100%;
+    text-align: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: inline-block;
+    background-color: #76766f;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.user-form-guide span.won {
+    background-color: #06760f;
+}
+
+.user-form-guide span.lost {
+    background-color: #f6060f;
+}
+
+
+
 /*----------------------------------------
 Fixtures and Results
 -----------------------------------------*/
@@ -661,5 +682,11 @@ Rules
 
     .show-640 {
         display: inline-block;
+    }
+
+    .user-form-guide span {
+        width: 2rem;
+        height: 2rem;
+        font-size: 1.1rem;
     }
 }

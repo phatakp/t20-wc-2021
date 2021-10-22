@@ -38,7 +38,21 @@
                             <td>{{user.name}}</td>
                             <td class="{% if user.amount < 0 %} text-danger {% else %} text-success{% endif %}">
                                 {{user.amount|floatformat:2}}</td>
-                            <td>-</td>
+                            <td>
+                                <div class="user-form-guide">
+                                    {% for form_bet in user.form_guide %}
+                                    {% if form_bet.status == 'won' %}
+                                    <span class="won">W</span>
+                                    {% elif form_bet.status == 'lost' %}
+                                    <span class="lost">L</span>
+                                    {% else %}
+                                    <span>-</span>
+                                    {% endif %}
+                                    {% empty %}
+                                    -
+                                    {% endfor %}
+                                </div>
+                            </td>
                         </tr>
                         {% endfor %}
 

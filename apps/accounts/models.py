@@ -59,3 +59,11 @@ class CustomUser(AbstractUser):
 
     def __str__(self) -> str:
         return self.name
+
+    @property
+    def form_guide(self):
+        played = self.user_bets.exclude(
+            models.Q(match__isnull=True) |
+            models.Q(match__match__status='scheduled')).order_by('-match__match__num').values('status')[:5]
+
+        return played
