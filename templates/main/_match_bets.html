@@ -20,7 +20,7 @@
                 {% for bet in match_bets %}
 
                 <tr {% if bet.updated %}class="changed" {% endif %}>
-                    <td class="name">{{bet.user.name}}</td>
+                    <td class="name">{{bet.user.name|capfirst}}</td>
                     {% if match.match.entry_cutoff_passed or bet.user == user %}
                     <td>{{bet.bet_team.shortname}}</td>
                     <td class="bet-amount">{{bet.bet_amt}}</td>
