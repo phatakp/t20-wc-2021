@@ -9,6 +9,6 @@
     <td class="hide-640">{{team.won}}</td>
     <td class="hide-640">{{team.lost}}</td>
     <td class="hide-1024">{{team.no_result}}</td>
-    <td>{{team.nrr|floatformat:2}}</td>
+    <td class="{% if team.nrr < 0 %}text-danger{% endif %}">{{team.nrr|floatformat:2}}</td>
     <td>{{team.points}}</td>
 </tr>

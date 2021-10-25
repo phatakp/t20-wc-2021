@@ -430,6 +430,11 @@ Dashboard
     padding-left: 2rem;
 }
 
+tbody td.bet-result,
+tbody td.bet-amount {
+    text-align: right;
+}
+
 .user-form-guide span {
     border-radius: 100%;
     text-align: center;
@@ -601,7 +606,26 @@ Rules
     font-weight: 800;
 }
 
+
+@media screen and (max-width: 1300px) {
+    html {
+        font-size: 14px;
+    }
+
+    .hide-640 {
+        display: none;
+    }
+
+    .show-640 {
+        display: inline-block;
+    }
+}
+
 @media screen and (max-width:1024px) {
+    html {
+        font-size: 13px;
+    }
+
     .hide-1024 {
         display: none;
     }
@@ -673,7 +697,7 @@ Rules
 @media screen and (max-width:640px) {
 
     html {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     .hide-640 {
@@ -685,8 +709,14 @@ Rules
     }
 
     .user-form-guide span {
-        width: 2rem;
-        height: 2rem;
-        font-size: 1.1rem;
+        width: 1.5rem;
+        height: 1.5rem;
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .hide {
+        display: none;
     }
 }

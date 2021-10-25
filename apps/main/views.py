@@ -32,9 +32,9 @@ class HomeView(TemplateView):
         curr_day = timezone.localtime()
         fut_day = curr_day + timedelta(days=3)
         matches = MatchResult.objects.filter(
-            match__date__gte=curr_day, match__date__lte=fut_day).order_by('match__date')
+            match__date__date__gte=curr_day.date(), match__date__lte=fut_day).order_by('match__date')
 
-        if matches.count() < 4:
+        if matches.count() < 9:
             matches = matches | \
                 MatchResult.objects.filter(
                     match__status='scheduled').order_by('match__date')

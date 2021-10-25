@@ -6,15 +6,7 @@
 
 <main>
     <div class="container">
-        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": false }'>
-            {% for match in matches %}
-            {% if forloop.counter < 5 %}
-            <div class="gallery-cell">
-                {% include 'main/_single_match.html' %}
-            </div>
-            {% endif %}
-            {% endfor %}
-        </div>
+        {% include 'main/_schedule_card.html' %}
     </div>
 
     <div class="container">

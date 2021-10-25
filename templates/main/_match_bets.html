@@ -23,12 +23,12 @@
                     <td class="name">{{bet.user.name}}</td>
                     {% if match.match.entry_cutoff_passed or bet.user == user %}
                     <td>{{bet.bet_team.shortname}}</td>
-                    <td>{{bet.bet_amt}}</td>
+                    <td class="bet-amount">{{bet.bet_amt}}</td>
                     {% else %}
                     <td>###</td>
-                    <td>###</td>
+                    <td class="bet-amount">###</td>
                     {% endif %}
-                    <td class="{% if bet.win_lose_amt < 0 %} text-danger {% else %} text-success{% endif %}">
+                    <td class="bet-result {% if bet.win_lose_amt < 0 %} text-danger {% else %} text-success{% endif %}">
                         {{bet.win_lose_amt|floatformat:2}}</td>
                     <td>{{bet.get_status_display}}</td>
                     <td class="hide-640">{{bet.create_upd_time|date:"d M, H:i"}}</td>

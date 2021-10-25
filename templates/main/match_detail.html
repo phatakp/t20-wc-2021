@@ -88,7 +88,7 @@
         <h1 class="text-center">Schedule</h1>
         <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": false }'>
             {% for match_slide in matches %}
-            {% if forloop.counter < 6 and match_slide != match %}
+            {% if forloop.counter < 9 and match_slide != match %}
             <div class="gallery-cell">
                 {% include 'main/_single_match.html' with match=match_slide %}
             </div>

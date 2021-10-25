@@ -1,0 +1,11 @@
+{% load static %}
+
+<div class="gallery js-flickity" data-flickity-options='{ "wrapAround": false }'>
+    {% for match in matches %}
+    {% if forloop.counter < 9 %}
+    <div class="gallery-cell">
+        {% include 'main/_single_match.html' %}
+    </div>
+    {% endif %}
+    {% endfor %}
+</div>

@@ -5,7 +5,7 @@ TEAM_CHOICES = [
     {'shortname': 'ENG', 'longname': 'England', 'super12': True, 'group': '1'},
     {'shortname': 'IND', 'longname': 'India', 'super12': True, 'group': '2'},
     {'shortname': 'IRE', 'longname': 'Ireland', 'super12': False},
-    {'shortname': 'NAM', 'longname': 'Namibia', 'super12': False},
+    {'shortname': 'NAM', 'longname': 'Namibia', 'super12': True, 'group': '2'},
     {'shortname': 'NED', 'longname': 'Netherlands', 'super12': False},
     {'shortname': 'NZ', 'longname': 'New Zealand', 'super12': True, 'group': '2'},
     {'shortname': 'OMN', 'longname': 'Oman', 'super12': False},
@@ -13,9 +13,8 @@ TEAM_CHOICES = [
     {'shortname': 'PNG', 'longname': 'Papua New Guinea', 'super12': False},
     {'shortname': 'SCO', 'longname': 'Scotland', 'super12': True,  'group': '2'},
     {'shortname': 'SA', 'longname': 'South Africa', 'super12': True, 'group': '1'},
-    {'shortname': 'SRI', 'longname': 'Srilanka', 'super12': True, 'group': '1'},
+    {'shortname': 'SRI', 'longname': 'Sri Lanka', 'super12': True, 'group': '1'},
     {'shortname': 'WI', 'longname': 'West Indies', 'super12': True, 'group': '1'},
-    {'shortname': 'A2', 'longname': 'RunnerUp Group A', 'super12': True, 'group': '2'},
 ]
 
 GROUP_CHOICES = [

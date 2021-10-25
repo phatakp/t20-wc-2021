@@ -6,20 +6,12 @@
 {% include '_header.html' %}
 <main class="dashboard">
     <div class="container">
-        <div class="gallery js-flickity" data-flickity-options='{ "wrapAround": false }'>
-            {% for match in matches %}
-            {% if forloop.counter < 5 %}
-            <div class="gallery-cell">
-                {% include 'main/_single_match.html' %}
-            </div>
-            {% endif %}
-            {% endfor %}
-        </div>
+        {% include 'main/_schedule_card.html' %}
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-6 col-sm-12 players">
-                <h2>Standings</h2>
+                <h2>Leader Board</h2>
                 <table class="table">
                     <thead>
                         <tr>
@@ -27,7 +19,7 @@
                             <th scope="col">WC Prediction</th>
                             <th scope="col">Name</th>
                             <th scope="col">Amount</th>
-                            <th scope="col">Form Guide</th>
+                            <th class="hide" scope="col">Form Guide</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,10 +27,11 @@
                         <tr>
                             <th scope="row">{{forloop.counter}}</th>
                             <td>{% include '_team_logo.html' with team=user.team %}</td>
-                            <td>{{user.name}}</td>
-                            <td class="{% if user.amount < 0 %} text-danger {% else %} text-success{% endif %}">
+                            <td>{{user.name|capfirst}}</td>
+                            <td
+                                class="bet-amount {% if user.amount < 0 %} text-danger {% else %} text-success{% endif %}">
                                 {{user.amount|floatformat:2}}</td>
-                            <td>
+                            <td class="hide">
                                 <div class="user-form-guide">
                                     {% for form_bet in user.form_guide %}
                                     {% if form_bet.status == 'won' %}
@@ -78,8 +71,9 @@
                             <th scope="row">{{bet.match}}</th>
                             <td>{{bet.bet_team.shortname}}</td>
                             <td>{{bet.get_status_display}}</td>
-                            <td>{{bet.bet_amt}}</td>
-                            <td class="{% if bet.win_lose_amt < 0 %} text-danger {% else %} text-success{% endif %}">
+                            <td class="bet-amount">{{bet.bet_amt}}</td>
+                            <td
+                                class="bet-result {% if bet.win_lose_amt < 0 %} text-danger {% else %} text-success{% endif %}">
                                 {{bet.win_lose_amt|floatformat:2}}</td>
                         </tr>
                         {% endfor %}

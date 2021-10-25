@@ -31,6 +31,6 @@ class MatchResultAdmin(admin.ModelAdmin):
 
 
 @admin.register(Bet)
-class MatchResultAdmin(admin.ModelAdmin):
+class BetAdmin(admin.ModelAdmin):
     list_display = ('user', 'match', 'bet_team', 'bet_amt',
                     'win_lose_amt', 'status', 'updated', 'create_upd_time')
