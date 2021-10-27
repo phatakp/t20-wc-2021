@@ -7,6 +7,7 @@ CustomUser = get_user_model()
 
 
 def standardize(overs):
+    overs = round(overs, 1)
     base = overs // 1
     mantissa = (overs*10) % 10
     if mantissa > 5:
